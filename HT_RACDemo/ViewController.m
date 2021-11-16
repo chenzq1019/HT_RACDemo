@@ -7,12 +7,15 @@
 
 #import "ViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
-
+#import "TestModel.h"
+#import "TestView.h"
 @interface ViewController ()
 @property (nonatomic, strong)  RACCommand * command;
 @property (nonatomic, strong) UIButton * mBtn;
 @property (nonatomic, strong) NSString * mTestValue;
 @property (nonatomic, strong) UILabel * mTitleLabel;
+@property (nonatomic, strong) TestModel * testModel;
+@property (nonatomic, strong) TestView * testView;
 @end
 
 @implementation ViewController
@@ -21,6 +24,10 @@
     [super viewDidLoad];
     [self.view addSubview:self.mTitleLabel];
     [self.view addSubview:self.mBtn];
+    _testView = [[TestView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    [self.view addSubview:_testView];
+    _testView.model =self.testModel;
+    
     // Do any additional setup after loading the view.
 //    [self runRACSignalMethod];
 //
@@ -34,7 +41,7 @@
 //
 //    [self runMutiRequestAndReturn];
     
-//    [self runMarcoConst];
+    [self runMarcoConst];
 //
 //    [self runCombinReduceSignals];
 //
@@ -225,13 +232,15 @@
 - (void)runMarcoConst{
     RACSubject * signal = [RACSubject subject];
     RAC(self.mBtn, enabled) = signal;
-    [signal sendNext:@NO];
+    [signal sendNext:@YES];
     
     RACSubject * signal2 = [RACSubject subject];
     RAC(self.mTitleLabel,text) = signal2;
     self.mTestValue = @"testValue";
     [signal2 sendNext:@"我要改变"];
-    
+//    _testModel = [[TestModel alloc] init];
+    RAC(_testModel, name) = [self.mTitleLabel rac_valuesForKeyPath:@"text" observer:self];
+//    self.testModel.name = @"chezq";
     NSLog(@"2:%@", self.mTestValue);
     
     
@@ -251,6 +260,7 @@
         }
         return @"";
     }];
+    NSLog(@"==%@",self.testModel.name);
 }
 
 - (void)runCombinReduceSignals{
@@ -294,6 +304,8 @@
         _mBtn.backgroundColor = [UIColor greenColor];
         [[_mBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             NSLog(@"按键点击");
+            self.testModel.name = @"chenzq";
+            self.testModel.isFinished = YES;
         }];
     }
     return _mBtn;
@@ -305,5 +317,12 @@
         _mTitleLabel.textColor = UIColor.blackColor;
     }
     return  _mTitleLabel;
+}
+
+- (TestModel *)testModel {
+    if (!_testModel) {
+        _testModel = [[TestModel alloc] init];
+    }
+    return _testModel;
 }
 @end

@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AB3D1E4F5C355C1535E41DAE /* Pods_HT_RACDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D79BC6C3742DC6467B5A91 /* Pods_HT_RACDemo.framework */; };
+		DF721ECD257E0D6900CD7A14 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF721ECC257E0D6900CD7A14 /* TestModel.m */; };
+		DF9B95E625CBD47D00B307E0 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9B95E525CBD47D00B307E0 /* TestView.m */; };
 		DFB0B061255E8E8500353640 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB0B060255E8E8500353640 /* AppDelegate.m */; };
 		DFB0B064255E8E8500353640 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB0B063255E8E8500353640 /* SceneDelegate.m */; };
 		DFB0B067255E8E8500353640 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB0B066255E8E8500353640 /* ViewController.m */; };
@@ -20,6 +22,10 @@
 /* Begin PBXFileReference section */
 		32D79BC6C3742DC6467B5A91 /* Pods_HT_RACDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HT_RACDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DCFB7242DE01DE71330C19 /* Pods-HT_RACDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HT_RACDemo.debug.xcconfig"; path = "Target Support Files/Pods-HT_RACDemo/Pods-HT_RACDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		DF721ECB257E0D6900CD7A14 /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		DF721ECC257E0D6900CD7A14 /* TestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		DF9B95E425CBD47D00B307E0 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		DF9B95E525CBD47D00B307E0 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
 		DFB0B05C255E8E8500353640 /* HT_RACDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HT_RACDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB0B05F255E8E8500353640 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DFB0B060255E8E8500353640 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -53,7 +59,6 @@
 				48DCFB7242DE01DE71330C19 /* Pods-HT_RACDemo.debug.xcconfig */,
 				F06230FC075715ADA168DABF /* Pods-HT_RACDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -89,6 +94,10 @@
 				DFB0B06D255E8E8600353640 /* LaunchScreen.storyboard */,
 				DFB0B070255E8E8600353640 /* Info.plist */,
 				DFB0B071255E8E8600353640 /* main.m */,
+				DF721ECB257E0D6900CD7A14 /* TestModel.h */,
+				DF721ECC257E0D6900CD7A14 /* TestModel.m */,
+				DF9B95E425CBD47D00B307E0 /* TestView.h */,
+				DF9B95E525CBD47D00B307E0 /* TestView.m */,
 			);
 			path = HT_RACDemo;
 			sourceTree = "<group>";
@@ -215,8 +224,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFB0B067255E8E8500353640 /* ViewController.m in Sources */,
+				DF721ECD257E0D6900CD7A14 /* TestModel.m in Sources */,
 				DFB0B061255E8E8500353640 /* AppDelegate.m in Sources */,
 				DFB0B072255E8E8600353640 /* main.m in Sources */,
+				DF9B95E625CBD47D00B307E0 /* TestView.m in Sources */,
 				DFB0B064255E8E8500353640 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
